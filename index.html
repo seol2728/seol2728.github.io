@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script type="text/javascript">
-            function getWeekDay(){
-                /************
-                getDay() : 1 - 월요일부터 시작, 0 - 일요일
-                *************/
-                /************
-                    day 의 입력 양식 yyyy-mm-dd
-                *************/
 
-                var day = document.getElementById("day").value;
+<head>
+    <script type="text/javascript">
+        function getWeekDay() {
+            /************
+            getDay() : 1 - 월요일부터 시작, 0 - 일요일
+            *************/
+            /************
+                day 의 입력 양식 yyyy-mm-dd
+            *************/
 
-                var splitDay = day.split("-");
+            var day = document.getElementById("day").value;
 
-                var startYearDay = '1/1/'+splitDay[0];
-                var today = splitDay[1] + '/' + splitDay[2] + '/' + splitDay[0];
+            var year = today.getFullYear();
 
-                var dt = new Date(startYearDay);
-                var tDt = new Date(today);
+            var splitDay = day.split("-");
 
-                var diffDay = (tDt-dt) / 86400000;    // Date 함수 기준 하루를 뭔 초로 나눴는지 모르겠음.
-               
-                // 1월 1일부터 현재날자까지 차이에서 7을 나눠서 몇주가 지났는지 확인을 함
-                var weekDay = parseInt(diffDay / 7) + 1;
+            var startYearDay = '1/1/' + splitDay[0];
+            var today = splitDay[1] + '/' + splitDay[2] + '/' + splitDay[0];
 
-                document.getElementById("result").innerHTML = weekDay;
+            var dt = new Date(startYearDay);
+            var tDt = new Date(today);
 
-            }
-        </script>
-    </head>
-    <body>
-        <input type="text" id="day" />
-       
-        <div id="result" style="border=1">
-        </div>
+            var diffDay = (tDt - dt) / 86400000;    // Date 함수 기준 하루를 뭔 초로 나눴는지 모르겠음.
 
-        <button onClick="javascript:getWeekDay();">test</button>
-    </body>
+            // 1월 1일부터 현재날자까지 차이에서 7을 나눠서 몇주가 지났는지 확인을 함
+            var weekDa = parseInt(diffDay / 7) + 1;
+
+            var weekDay = (year + weekDa);
+
+            document.getElementById("result").innerHTML = weekDay;
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="day" />
+
+    <div id="result" style="border=1">
+    </div>
+
+    <button onClick="javascript:getWeekDay();">test</button>
+</body>
+        
 </html>
