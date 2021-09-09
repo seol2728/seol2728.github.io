@@ -25,10 +25,6 @@
                 // 1월 1일부터 현재날자까지 차이에서 7을 나눠서 몇주가 지났는지 확인을 함
                 var weekDay = parseInt(diffDay / 7) + 1;
 
-                // 요일을 기준으로 1월 1일보다 이전 요일이라면 1주가 더 늘었으므로 +1 시켜줌.
-                if( tDt.getDay() < dt.getDay() )
-                    weekDay += 1;
-
                 document.getElementById("result").innerHTML = weekDay;
 
             }
