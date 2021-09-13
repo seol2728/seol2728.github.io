@@ -1,36 +1,16 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Moment.js</title>
+  </head>
+  <body>
 
-<head>
-    <script type="text/javascript">
-        function getWeekDay() {
-            /************
-            getDay() : 1 - 월요일부터 시작, 0 - 일요일
-            *************/
-            /************
-                day 의 입력 양식 yyyy-mm-dd
-            *************/
-
-            currentdate = new Date();
-            var oneJan = new Date(currentdate.getFullYear(), 0, 1);
-            var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
-            var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-
-            var day = document.getElementById("day").value;
-
-            document.getElementById("result").innerHTML = result;
-
-        }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+      // You have a 'moment' global here
+      moment('202013', 'YYYYWW').format('M/D');
     </script>
-</head>
-
-<body>
-    <input type="text" id="day" />
-
-    <div id="result" style="border=1">
-    </div>
-
-    <button onClick="javascript:getWeekDay();">test</button>
-</body>
-
+  </body>
 </html>
